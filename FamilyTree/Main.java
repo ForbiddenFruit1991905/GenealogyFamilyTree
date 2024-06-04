@@ -58,7 +58,7 @@ public class Main {
         scanner.close();
     }
 
-    static  FamilyTree familyTestTree(){
+    static FamilyTree familyTestTree(){
         FamilyTree familyTree = new FamilyTree();
 
         Human person1 = new Human("Firstname_1_1", "Middlename_1_1", "Lastname_1", Gender.Male, Relation.Type.Spouses);
