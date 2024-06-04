@@ -7,7 +7,7 @@ public class FamilyTree implements Serializable{
 
     private Human human;
     private List<Human> familyList;
-    private static int count_id = 1;
+    private int count_id = 1;
 
     public FamilyTree() {
         this.familyList = new ArrayList<>();
