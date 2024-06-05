@@ -10,9 +10,9 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String fileName = "Homework/FamilyTree/tree.txt";
+        String fileName = "FamilyTree/tree.txt";
 //        Чтение из файла
-//        FamilyTree tree = readFile(fileName);
+        FamilyTree tree1 = readFile(fileName);
 //        FamilyTreeService tree = familyTestTree();
 //        Сохраняем данные в файл
         FamilyTree tree = new FamilyTree();
@@ -111,16 +111,16 @@ public class Main {
 //        return service;
 //    }
 
-//    static FamilyTree readFile(String fileName){
-//        // Создаем экземпляр класса FileHandler
-//        FileHandlerFamilyTree fileHandler = new FileHandlerFamilyTree();
-//        return (FamilyTree) fileHandler.readFile();
-//    }
-//
-//    static void writeToFile(FamilyTree familyTree, String fileName){
-//        FileHandlerFamilyTree fileHandler = new FileHandlerFamilyTree();
-//        fileHandler.writeToFile(familyTree, fileName);
-//    }
+    static FamilyTree readFile(String fileName){
+        // Создаем экземпляр класса FileHandler
+        FileHandlerFamilyTree fileHandler = new FileHandlerFamilyTree();
+        return (FamilyTree) fileHandler.readFile();
+    }
+
+    static void writeToFile(FamilyTree familyTree, String fileName){
+        FileHandlerFamilyTree fileHandler = new FileHandlerFamilyTree();
+        fileHandler.writeToFile(familyTree, fileName);
+    }
 
 //    private static void getCommands() {
 //        System.out.println("Выберите из списка необходимую комманду: ");
