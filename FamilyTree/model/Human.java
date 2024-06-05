@@ -26,8 +26,8 @@ public class Human implements Serializable{
         this.id = id;
     }
 
-    public Human(String firstname, String middlename, String lastname, Gender gender, Relation.Type relation) {
-//        this.id = id;
+    public Human(int id, String firstname, String middlename, String lastname, Gender gender, Relation.Type relation) {
+        this.id = id;
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;

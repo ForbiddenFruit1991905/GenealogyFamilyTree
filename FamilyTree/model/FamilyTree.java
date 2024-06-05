@@ -1,21 +1,29 @@
 package HW.familyTree.FamilyTree.FamilyTree.model;
 
+import HW.familyTree.FamilyTree.FamilyTree.HumanIterator;
+
 import java.io.*;
 import java.util.*;
 
-public class FamilyTree implements Serializable{
+public class FamilyTree implements Serializable, Iterable<Human>{
 
     private Human human;
     private List<Human> familyList;
-    private int count_id = 1;
+//    private int count_id = 1;
 
     public FamilyTree() {
         this.familyList = new ArrayList<>();
     }
 
+    @Override
+    public Iterator<Human> iterator() {
+        return new HumanIterator(familyList);
+    }
+
+
 //    Запись о новом члене семьи
     public void addHuman(Human human) {
-        human.setId(count_id++);
+//        human.setId(count_id++);
         familyList.add(human);
     }
 
@@ -50,4 +58,6 @@ public List<Human> getAllPeople() {
         }
         return stringBuilder.toString();
     }
+
+
 }
