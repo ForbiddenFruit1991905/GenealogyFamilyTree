@@ -1,11 +1,9 @@
 package HW.familyTree.FamilyTree.FamilyTree.writer;
 
 import HW.familyTree.FamilyTree.FamilyTree.model.FamilyTree;
-import HW.familyTree.FamilyTree.FamilyTree.model.Human;
 
 
 import java.io.*;
-import java.util.List;
 
 
 public class FileHandler{

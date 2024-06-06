@@ -1,7 +1,7 @@
 package HW.familyTree.FamilyTree.FamilyTree.writer;
 
 import HW.familyTree.FamilyTree.FamilyTree.model.FamilyTree;
-import HW.familyTree.FamilyTree.FamilyTree.model.Human;
+import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 
 import java.io.Serializable;
 import java.util.List;

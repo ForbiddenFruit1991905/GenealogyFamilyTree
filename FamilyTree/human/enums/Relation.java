@@ -1,4 +1,4 @@
-package HW.familyTree.FamilyTree.FamilyTree.model.enums;
+package HW.familyTree.FamilyTree.FamilyTree.human.enums;
 
 public class Relation {
     public enum Type {

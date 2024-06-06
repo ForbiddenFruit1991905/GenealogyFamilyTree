@@ -1,11 +1,8 @@
 package HW.familyTree.FamilyTree.FamilyTree;
 
 import HW.familyTree.FamilyTree.FamilyTree.model.FamilyTree;
-import HW.familyTree.FamilyTree.FamilyTree.model.Human;
-import HW.familyTree.FamilyTree.FamilyTree.model.enums.Gender;
-import HW.familyTree.FamilyTree.FamilyTree.model.enums.Relation;
-
-import java.util.Scanner;
+import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
+import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
 
 public class Main {
 
@@ -18,11 +15,11 @@ public class Main {
         FamilyTree tree = new FamilyTree();
         FamilyTreeService service = new FamilyTreeService(tree);
 
-        service.addHuman("Firstname_1_1", "Middlename_1_1", "Lastname_1", Gender.Male, Relation.Type.Spouses);
-        service.addHuman("Firstname_1_2", "Middlename_1_2", "Lastname_1", Gender.Female, Relation.Type.Spouses);
-        service.addHuman("Firstname_2_1", "Middlename_2_1", "Lastname_2", Gender.Male, Relation.Type.Spouses);
-        service.addHuman("Firstname_2_2", "Middlename_2_2", "Lastname_2", Gender.Female, Relation.Type.Spouses);
-        service.addHuman("Firstname_3", "Middlename_3", "Lastname_3", Gender.Male, Relation.Type.Divorced);
+        service.addHuman("Firstname_1_1", "Middlename_1_1", "Lastname_1", 37, Gender.Male, Relation.Type.Spouses);
+        service.addHuman("Firstname_1_2", "Middlename_1_2", "Lastname_1", 35, Gender.Female, Relation.Type.Spouses);
+        service.addHuman("Firstname_2_1", "Middlename_2_1", "Lastname_2", 9, Gender.Male, Relation.Type.Child);
+        service.addHuman("Firstname_2_2", "Middlename_2_2", "Lastname_2", 7, Gender.Female, Relation.Type.Child);
+        service.addHuman("Firstname_3", "Middlename_3", "Lastname_3", 5, Gender.Male, Relation.Type.Child);
 
         System.out.println(service.getFamilyListInfo());
 

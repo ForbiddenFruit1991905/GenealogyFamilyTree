@@ -1,6 +1,7 @@
 package HW.familyTree.FamilyTree.FamilyTree.model;
 
 import HW.familyTree.FamilyTree.FamilyTree.HumanIterator;
+import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 
 import java.io.*;
 import java.util.*;
@@ -19,7 +20,6 @@ public class FamilyTree implements Serializable, Iterable<Human>{
     public Iterator<Human> iterator() {
         return new HumanIterator(familyList);
     }
-
 
 //    Запись о новом члене семьи
     public void addHuman(Human human) {
@@ -59,5 +59,7 @@ public List<Human> getAllPeople() {
         return stringBuilder.toString();
     }
 
-
+    public void sortByName(){
+        Collections.sort(familyList);
+    }
 }
