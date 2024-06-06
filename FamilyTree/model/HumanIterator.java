@@ -1,4 +1,4 @@
-package HW.familyTree.FamilyTree.FamilyTree;
+package HW.familyTree.FamilyTree.FamilyTree.model;
 
 import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 

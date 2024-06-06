@@ -4,7 +4,6 @@ import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
 
 import java.io.Serializable;
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,9 +19,10 @@ public class Human implements Serializable, Comparable<Human>{
     private int age;
 
 
-    public Human(Gender gender) {
+    public Human(String firstname11, String middlename11, String lastname1, int i, Gender gender, Relation.Type spouses) {
         this.gender = gender;
     }
+
 
     public void setId(int id) {
         this.id = id;

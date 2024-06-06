@@ -1,6 +1,5 @@
 package HW.familyTree.FamilyTree.FamilyTree.model;
 
-import HW.familyTree.FamilyTree.FamilyTree.HumanIterator;
 import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 
 import java.io.*;

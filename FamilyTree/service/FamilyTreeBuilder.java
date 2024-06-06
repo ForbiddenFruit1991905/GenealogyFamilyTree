@@ -1,4 +1,4 @@
-package HW.familyTree.FamilyTree.FamilyTree;
+package HW.familyTree.FamilyTree.FamilyTree.service;
 
 import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;

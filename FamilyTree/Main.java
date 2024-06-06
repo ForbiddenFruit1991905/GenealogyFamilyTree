@@ -3,13 +3,15 @@ package HW.familyTree.FamilyTree.FamilyTree;
 import HW.familyTree.FamilyTree.FamilyTree.model.FamilyTree;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
+import HW.familyTree.FamilyTree.FamilyTree.service.FamilyTreeService;
+import HW.familyTree.FamilyTree.FamilyTree.writer.FileHandlerFamilyTree;
 
 public class Main {
 
     public static void main(String[] args) {
-        String fileName = "FamilyTree/tree.txt";
+        String fileName = "tree.txt";
 //        Чтение из файла
-        FamilyTree tree1 = readFile(fileName);
+//        FamilyTree tree1 = readFile(fileName);
 //        FamilyTreeService tree = familyTestTree();
 //        Сохраняем данные в файл
         FamilyTree tree = new FamilyTree();
@@ -116,7 +118,7 @@ public class Main {
     static FamilyTree readFile(String fileName){
         // Создаем экземпляр класса FileHandler
         FileHandlerFamilyTree fileHandler = new FileHandlerFamilyTree();
-        return (FamilyTree) fileHandler.readFile();
+        return (FamilyTree) fileHandler.readFile(fileName);
     }
 
     static void writeToFile(FamilyTree familyTree, String fileName){

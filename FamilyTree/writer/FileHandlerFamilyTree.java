@@ -1,15 +1,13 @@
-package HW.familyTree.FamilyTree.FamilyTree;
+package HW.familyTree.FamilyTree.FamilyTree.writer;
 
 import HW.familyTree.FamilyTree.FamilyTree.model.FamilyTree;
 import HW.familyTree.FamilyTree.FamilyTree.human.Human;
-import HW.familyTree.FamilyTree.FamilyTree.writer.FileHandler;
-import HW.familyTree.FamilyTree.FamilyTree.writer.FileIO;
 
 import java.io.Serializable;
 import java.util.List;
 
 public class FileHandlerFamilyTree extends FileHandler implements FileIO {
-    private String fileName = "Homework/FamilyTree/tree.txt";
+    private String fileName = "tree.txt";
 
     @Override
     public void setFileName(String fileName) {
@@ -28,6 +26,11 @@ public class FileHandlerFamilyTree extends FileHandler implements FileIO {
 
     @Override
     public FamilyTree readFile() {
-        return super.readFile(fileName);
+        return null;
+    }
+
+    @Override
+    public FamilyTree readFile(String fileName) {
+        return super.readFile(this.fileName);
     }
 }
