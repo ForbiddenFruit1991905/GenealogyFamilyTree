@@ -59,6 +59,14 @@ public class Human implements Serializable, Comparable<Human>{
         return lastname;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public Relation.Type getRelation() {
+        return relation;
+    }
+
     public Gender getGender() {
         return gender;
     }

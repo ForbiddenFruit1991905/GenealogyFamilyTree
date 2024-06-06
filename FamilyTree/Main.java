@@ -15,16 +15,21 @@ public class Main {
         FamilyTree tree = new FamilyTree();
         FamilyTreeService service = new FamilyTreeService(tree);
 
-        service.addHuman("Firstname_1_1", "Middlename_1_1", "Lastname_1", 37, Gender.Male, Relation.Type.Spouses);
+        service.addHuman("Firstname_4", "Middlename_1_1", "Lastname_1", 37, Gender.Male, Relation.Type.Spouses);
         service.addHuman("Firstname_1_2", "Middlename_1_2", "Lastname_1", 35, Gender.Female, Relation.Type.Spouses);
-        service.addHuman("Firstname_2_1", "Middlename_2_1", "Lastname_2", 9, Gender.Male, Relation.Type.Child);
-        service.addHuman("Firstname_2_2", "Middlename_2_2", "Lastname_2", 7, Gender.Female, Relation.Type.Child);
-        service.addHuman("Firstname_3", "Middlename_3", "Lastname_3", 5, Gender.Male, Relation.Type.Child);
+        service.addHuman("Firstname_2_1", "Middlename_2_1", "Lastname_2", 7, Gender.Male, Relation.Type.Child);
+        service.addHuman("Firstname_2_2", "Middlename_2_2", "Lastname_2", 5, Gender.Female, Relation.Type.Child);
+        service.addHuman("Firstname_3", "Middlename_3", "Lastname_3", 9, Gender.Male, Relation.Type.Child);
 
         System.out.println(service.getFamilyListInfo());
 
         service.setWritable(new FileHandlerFamilyTree());
         service.writeToFile();
+        service.sortByName();
+        System.out.println(service.getFamilyListInfo());
+        service.sortByAge();
+        System.out.println(service.getFamilyListInfo());
+
 
 //        Scanner scanner = new Scanner(System.in);
 //        while (true) {

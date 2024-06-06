@@ -68,4 +68,12 @@ public class FamilyTreeService {
         familyTree = fileIO.readFile();
         return true;
     }
+
+    public void sortByName(){
+        familyTree.sortByName();
+    }
+
+    public void sortByAge(){
+        familyTree.sortByAge();
+    }
 }

@@ -16,11 +16,6 @@ public class FamilyTree implements Serializable, Iterable<Human>{
         this.familyList = new ArrayList<>();
     }
 
-    @Override
-    public Iterator<Human> iterator() {
-        return new HumanIterator(familyList);
-    }
-
 //    Запись о новом члене семьи
     public void addHuman(Human human) {
 //        human.setId(count_id++);
@@ -59,7 +54,17 @@ public List<Human> getAllPeople() {
         return stringBuilder.toString();
     }
 
+    @Override
+    public Iterator<Human> iterator() {
+        return new HumanIterator(familyList);
+    }
+
     public void sortByName(){
-        Collections.sort(familyList);
+        familyList.sort(new ComparatorByName());
+    }
+
+    public void sortByAge(){
+//        Collections.sort(familyList, new ComparatorByAge());
+        familyList.sort(new ComparatorByAge());
     }
 }
