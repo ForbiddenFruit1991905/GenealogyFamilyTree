@@ -1,13 +1,14 @@
-package HW.familyTree.FamilyTree.FamilyTree.model;
+package HW.familyTree.FamilyTree.FamilyTree.human;
 
-import HW.familyTree.FamilyTree.FamilyTree.model.enums.Gender;
-import HW.familyTree.FamilyTree.FamilyTree.model.enums.Relation;
+import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
+import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Human implements Serializable{
+public class Human implements Serializable, Comparable<Human>{
 
     private String firstname;
     private String lastname;
@@ -16,6 +17,7 @@ public class Human implements Serializable{
     private Relation.Type relation;
     private int id;
     private List<Human> kinder;
+    private int age;
 
 
     public Human(Gender gender) {
@@ -26,11 +28,12 @@ public class Human implements Serializable{
         this.id = id;
     }
 
-    public Human(int id, String firstname, String middlename, String lastname, Gender gender, Relation.Type relation) {
+    public Human(int id, String firstname, String middlename, String lastname, int age, Gender gender, Relation.Type relation) {
         this.id = id;
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
+        this.age = age;
         this.gender = gender;
         this.relation = relation;
         this.kinder = new ArrayList<>();
@@ -66,7 +69,12 @@ public class Human implements Serializable{
 
     @Override
     public String toString() {
-        return " id: " + id + ", имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", пол: " + gender + ", семейная связь: " + relation;
+        return " id: " + id + ", имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", возраст:" + age + ", пол: " + gender + ", семейная связь: " + relation;
+    }
+
+    @Override
+    public int compareTo(Human o) {
+        return firstname.compareTo(o.firstname);
     }
 }
 
