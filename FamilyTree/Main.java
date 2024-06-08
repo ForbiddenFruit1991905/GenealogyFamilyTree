@@ -11,11 +11,9 @@ public class Main {
 
     public static void main(String[] args) {
         String fileName = "tree.txt";
-
 //        Чтение из файла
 //        FamilyTree familyTree = readFile(fileName);
 //        Сохраняем данные в файл
-
         FamilyTree<Human> familyTree = new FamilyTree();
         FamilyTreeService service = new FamilyTreeService(familyTree);
 
