@@ -5,25 +5,23 @@ import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 import java.io.*;
 import java.util.*;
 
-public class FamilyTree implements Serializable, Iterable<Human>{
+public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, Iterable<T>{
 
     private Human human;
-    private List<Human> familyList;
-//    private int count_id = 1;
+    private List<T> familyList;
 
     public FamilyTree() {
         this.familyList = new ArrayList<>();
     }
 
 //    Запись о новом члене семьи
-    public void addHuman(Human human) {
-//        human.setId(count_id++);
+    public void addHuman(T human) {
         familyList.add(human);
     }
 
 //    Поиск человека по ID
-    public Human findHumanById(int idHuman) {
-        for (Human human: familyList) {
+    public T findHumanById(int idHuman) {
+        for (T human: familyList) {
             if(Objects.equals(human.getId(), idHuman)) {
                 return human;
             }
@@ -32,21 +30,16 @@ public class FamilyTree implements Serializable, Iterable<Human>{
     }
 
 //    Удаление записи в древе
-    public Human removeHuman(int id) {
-        familyList.remove(id-1);
-        return human;
+    public T removeHuman(int id) {
+       return familyList.remove(id-1);
+//       return human;
     }
-
-//    Возвращаем список персон
-public List<Human> getAllPeople() {
-    return (List<Human>) human;
-}
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Список членов семьи: \n");
-        for (Human human: familyList) {
+        for (T human: familyList) {
             stringBuilder.append(human);
             stringBuilder.append("\n");
         }
@@ -54,16 +47,16 @@ public List<Human> getAllPeople() {
     }
 
     @Override
-    public Iterator<Human> iterator() {
-        return new HumanIterator(familyList);
+    public Iterator<T> iterator() {
+        return new HumanIterator<>(familyList);
     }
 
     public void sortByName(){
-        familyList.sort(new ComparatorByName());
+        familyList.sort(new ComparatorByName<>());
     }
 
     public void sortByAge(){
 //        Collections.sort(familyList, new ComparatorByAge());
-        familyList.sort(new ComparatorByAge());
+        familyList.sort(new ComparatorByAge<>());
     }
 }

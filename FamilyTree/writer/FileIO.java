@@ -13,7 +13,7 @@ public interface FileIO {
 
     boolean writeToFile(List<Human> familyTree);
 
-    boolean writeToFile(FamilyTree familyTree);
+    boolean writeToFile(FamilyTree<Human> familyTree);
 
-    FamilyTree readFile();
+    FamilyTree<Human> readFile();
 }

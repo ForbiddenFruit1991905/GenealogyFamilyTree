@@ -5,17 +5,16 @@ import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
 import HW.familyTree.FamilyTree.FamilyTree.writer.FileIO;
-
 import java.util.Iterator;
-import java.util.List;
+
 
 public class FamilyTreeService {
     private FileIO fileIO;
-    private FamilyTree familyTree;
+    private FamilyTree<Human> familyTree;
     private FamilyTreeBuilder familyTreeBuilder;
 
-    public FamilyTreeService(FamilyTree familyTree) {
-        this.familyTree = new FamilyTree();
+    public FamilyTreeService(FamilyTree<Human> tree) {
+        this.familyTree = new FamilyTree<>();
         this.familyTreeBuilder = new FamilyTreeBuilder();
     }
 
@@ -31,16 +30,17 @@ public class FamilyTreeService {
         return familyTree.removeHuman(id);
     }
 
-    public List<Human> getAllPeople() {
-        return familyTree.getAllPeople();
-    }
-
     public Iterator<Human> getFamilyIterator() {
         return familyTree.iterator();
     }
 
     public void addHuman(String firstname, String middlename, String lastname, int age, Gender gender, Relation.Type relation){
         Human human = familyTreeBuilder.build(firstname, middlename, lastname, age, gender, relation);
+        familyTree.addHuman(human);
+    }
+
+    public void addKinder(String firstname, String middlename, String lastname, int age, Gender gender, Relation.Type relation){
+        Human human = familyTreeBuilder.addKinder(firstname, middlename, lastname, age, gender, relation);
         familyTree.addHuman(human);
     }
 
@@ -54,11 +54,11 @@ public class FamilyTreeService {
         return stringBuilder.toString();
     }
 
-    public boolean writeToFile() {
+    public void writeToFile() {
         if (fileIO == null){
-            return false;
+            return;
         }
-        return fileIO.writeToFile(familyTree);
+        fileIO.writeToFile(familyTree);
     }
 
     public boolean readFile(){

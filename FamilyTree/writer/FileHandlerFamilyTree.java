@@ -16,21 +16,21 @@ public class FileHandlerFamilyTree extends FileHandler implements FileIO {
 
     @Override
     public boolean writeToFile(List<Human> familyTree) {
-        return super.writeToFile((Serializable)familyTree, fileName);
-    }
-
-    @Override
-    public boolean writeToFile(FamilyTree familyTree) {
         return false;
     }
 
     @Override
-    public FamilyTree readFile() {
+    public boolean writeToFile(FamilyTree<Human> tree) {
+        return super.writeToFile(tree, fileName);
+    }
+
+   @Override
+    public FamilyTree<Human> readFile() {
         return null;
     }
 
     @Override
-    public FamilyTree readFile(String fileName) {
+    public FamilyTree<Human> readFile(String fileName) {
         return super.readFile(this.fileName);
     }
 }
