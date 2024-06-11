@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.*;
 
 public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, Iterable<T>{
-    private int humanID;
+
     private Human human;
     private List<T> familyList;
 
@@ -36,14 +36,6 @@ public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, It
     public T removeHuman(int id) {
        return familyList.remove(id-1);
     }
-
-//    public boolean removeHuman(int humanID){
-//        if (checkId(humanID)){
-//            T t = getId(humanID);
-//            return familyList.remove(t);
-//        }
-//        return false;
-//    }
 
     @Override
     public String toString() {
