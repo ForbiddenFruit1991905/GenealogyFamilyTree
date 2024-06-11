@@ -34,12 +34,11 @@ public class Presenter {
         familyTreeService.sortByAge();
     }
 
-    public Human removeHuman(int id) {
-        return familyTreeService.removeHuman(id);
+    public Human removeHuman(int idHuman) {
+        return familyTreeService.removeHuman(idHuman);
     }
 
     public Human findHumanById(int idHuman) {
-//        System.out.println(familyTreeService.findHumanById(idHuman));
         return familyTreeService.findHumanById(idHuman);
     }
 
