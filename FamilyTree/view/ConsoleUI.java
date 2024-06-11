@@ -75,7 +75,8 @@ public class ConsoleUI implements View{
 
     public void removeHuman() {
         System.out.println("Введите ID для удаления: ");
-        int id = scanner.nextInt();
+        String strID = scanner.nextLine();
+        int id = Integer.parseInt(strID);
         presenter.removeHuman(id);
         //TODO проверить позже цикл + id для удаление должно сопоставляться с индексом итератора!!!
         System.out.println("Запись удалена");

@@ -27,8 +27,8 @@ public class FamilyTreeService {
         return familyTree.findHumanById(idHuman);
     }
 
-    public Human removeHuman(int id) {
-        return familyTree.removeHuman(id);
+    public Human removeHuman(int idHuman) {
+        return familyTree.removeHuman(idHuman);
     }
 
     public Iterator<Human> getFamilyIterator() {

@@ -33,9 +33,19 @@ public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, It
     }
 
 //    Удаление записи в древе
-    public T removeHuman(int id) {
-       return familyList.remove(id-1);
+//    public T removeHuman(int id) {
+//       return familyList.remove(id-1);
+//    }
+
+    public T removeHuman(int idHuman) {
+        for (T human: familyList) {
+            if (Objects.equals(human.getId(), idHuman)) {
+                return familyList.remove(idHuman - 1);
+            }
+        }
+        return null;
     }
+
 
     @Override
     public String toString() {
