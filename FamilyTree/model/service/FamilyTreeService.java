@@ -1,9 +1,10 @@
-package HW.familyTree.FamilyTree.FamilyTree.service;
+package HW.familyTree.FamilyTree.FamilyTree.model.service;
 
 import HW.familyTree.FamilyTree.FamilyTree.model.FamilyTree;
 import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
+import HW.familyTree.FamilyTree.FamilyTree.model.builder.FamilyTreeBuilder;
 import HW.familyTree.FamilyTree.FamilyTree.writer.FileIO;
 import java.util.Iterator;
 
@@ -13,7 +14,7 @@ public class FamilyTreeService {
     private FamilyTree<Human> familyTree;
     private FamilyTreeBuilder familyTreeBuilder;
 
-    public FamilyTreeService(FamilyTree<Human> tree) {
+    public FamilyTreeService() {
         this.familyTree = new FamilyTree<>();
         this.familyTreeBuilder = new FamilyTreeBuilder();
     }

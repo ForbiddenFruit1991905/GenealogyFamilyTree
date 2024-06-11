@@ -4,7 +4,9 @@ import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 import HW.familyTree.FamilyTree.FamilyTree.model.FamilyTree;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
-import HW.familyTree.FamilyTree.FamilyTree.service.FamilyTreeService;
+import HW.familyTree.FamilyTree.FamilyTree.model.service.FamilyTreeService;
+import HW.familyTree.FamilyTree.FamilyTree.view.ConsoleUI;
+import HW.familyTree.FamilyTree.FamilyTree.view.View;
 import HW.familyTree.FamilyTree.FamilyTree.writer.FileHandlerFamilyTree;
 
 public class Main {
@@ -15,7 +17,7 @@ public class Main {
 //        FamilyTree familyTree = readFile(fileName);
 //        Сохраняем данные в файл
         FamilyTree<Human> familyTree = new FamilyTree();
-        FamilyTreeService service = new FamilyTreeService(familyTree);
+        FamilyTreeService service = new FamilyTreeService();
 
         service.addHuman("Firstname_4", "Middlename_1_1", "Lastname_1", 37, Gender.Male, Relation.Type.Spouses);
         service.addHuman("Firstname_1_2", "Middlename_1_2", "Lastname_1", 35, Gender.Female, Relation.Type.Spouses);
@@ -34,6 +36,9 @@ public class Main {
         System.out.println(service.getFamilyListInfo());
         service.findHumanById(4);
         System.out.println(service.findHumanById(4));
+
+        View view = new ConsoleUI();
+        view.start();
     }
 
     static FamilyTree readFile(String fileName){
