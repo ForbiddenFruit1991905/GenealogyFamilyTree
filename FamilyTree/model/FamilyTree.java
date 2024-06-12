@@ -12,9 +12,14 @@ public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, It
 
     private Human human;
     private List<T> familyList;
+    private List<T> kinder;
 
     public FamilyTree() {
         this.familyList = new ArrayList<>();
+    }
+
+    public void addKinder(T child) {
+        kinder.add(child);
     }
 
 //    Запись о новом члене семьи
@@ -33,10 +38,6 @@ public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, It
     }
 
 //    Удаление записи в древе
-//    public T removeHuman(int id) {
-//       return familyList.remove(id-1);
-//    }
-
     public T removeHuman(int idHuman) {
         for (T human: familyList) {
             if (Objects.equals(human.getId(), idHuman)) {
@@ -45,7 +46,6 @@ public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, It
         }
         return null;
     }
-
 
     @Override
     public String toString() {
@@ -68,7 +68,6 @@ public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, It
     }
 
     public void sortByAge(){
-//        Collections.sort(familyList, new ComparatorByAge());
         familyList.sort(new ComparatorByAge<>());
     }
 }

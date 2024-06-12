@@ -17,7 +17,6 @@ public class Presenter {
 
     public void addHuman(String firstname, String middlename, String lastname, int age, Gender gender, Relation.Type relation) {
         familyTreeService.addHuman(firstname, middlename, lastname, age, gender, relation);
-        //TODO добавить дейтсиве для отображения результата
         getFamilyListInfo();
     }
 
@@ -34,8 +33,8 @@ public class Presenter {
         familyTreeService.sortByAge();
     }
 
-    public Human removeHuman(int idHuman) {
-        return familyTreeService.removeHuman(idHuman);
+    public void removeHuman(int idHuman) {
+        familyTreeService.removeHuman(idHuman);
     }
 
     public Human findHumanById(int idHuman) {

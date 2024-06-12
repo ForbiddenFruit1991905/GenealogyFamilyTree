@@ -33,9 +33,9 @@ public class ConsoleUI implements View{
 //                int choice = Integer.parseInt(command);
                 if (checkChoice(command)){
                     mainMenu.execute(Integer.parseInt(command));
-                } else {
-                    System.out.println("Такой команды нет. \nПопробуйте еще раз ввести данные");
                 }
+            } else {
+                System.out.println("Такой команды нет. \nПопробуйте еще раз ввести данные");
             }
 
 //      System.out.println("Такой команды нет. \nПопробуйте еще раз ввести данные");
@@ -52,7 +52,6 @@ public class ConsoleUI implements View{
         String lastname = scanner.nextLine();
         System.out.println("Укажете возраст:");
         String ageStr = scanner.nextLine();
-        //TODO метод проверки на валидность числа
         int age = Integer.parseInt(ageStr);
         System.out.println("Введите Male или Female");
         Gender gender = Gender.valueOf(scanner.nextLine());
@@ -78,7 +77,6 @@ public class ConsoleUI implements View{
         String strID = scanner.nextLine();
         int id = Integer.parseInt(strID);
         presenter.removeHuman(id);
-        //TODO проверить позже цикл + id для удаление должно сопоставляться с индексом итератора!!!
         System.out.println("Запись удалена");
         presenter.getFamilyListInfo();
     }

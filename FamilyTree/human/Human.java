@@ -16,12 +16,8 @@ public class Human implements Serializable, FamilyTreeItem<Human> {
     private Gender gender;
     private Relation.Type relation;
     private int id;
-//    private List<Human> kinder;
+    private List<Human> kinder;
     private int age;
-
-//    public void setId(int id) {
-//        this.id = id;
-//    }
 
     public Human(int id, String firstname, String middlename, String lastname, int age, Gender gender, Relation.Type relation) {
         this.id = id;
@@ -31,12 +27,8 @@ public class Human implements Serializable, FamilyTreeItem<Human> {
         this.age = age;
         this.gender = gender;
         this.relation = relation;
-//        this.kinder = new ArrayList<>();
+        this.kinder = new ArrayList<>();
     }
-
-//    public void addKinder(Human child) {
-//        kinder.add(child);
-//    }
 
     public int getId() {
         return id;
@@ -78,6 +70,11 @@ public class Human implements Serializable, FamilyTreeItem<Human> {
         return List.of();
     }
 
+    @Override
+    public Human addKinder(Human child) {
+        return null;
+    }
+
     public Relation.Type getRelation() {
         return relation;
     }
@@ -86,9 +83,9 @@ public class Human implements Serializable, FamilyTreeItem<Human> {
         return gender;
     }
 
-//    public List<Human> getKinder() {
-//        return kinder;
-//    }
+    public List<Human> getKinder() {
+        return kinder;
+    }
 
     @Override
     public String toString() {

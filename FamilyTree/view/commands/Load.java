@@ -9,6 +9,6 @@ public class Load extends Command{
 
     @Override
     public void execute() {
-
+        getConsoleUI().load();
     }
 }
