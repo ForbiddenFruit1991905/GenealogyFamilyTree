@@ -3,10 +3,12 @@ package HW.familyTree.FamilyTree.FamilyTree.presenter;
 import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
+import HW.familyTree.FamilyTree.FamilyTree.model.FamilyTree;
 import HW.familyTree.FamilyTree.FamilyTree.model.service.FamilyTreeService;
 import HW.familyTree.FamilyTree.FamilyTree.view.View;
 
 public class Presenter {
+
     private FamilyTreeService familyTreeService;
     private View view;
 
