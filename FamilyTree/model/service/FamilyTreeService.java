@@ -6,8 +6,8 @@ import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
 import HW.familyTree.FamilyTree.FamilyTree.model.builder.FamilyTreeBuilder;
 import HW.familyTree.FamilyTree.FamilyTree.writer.FileIO;
-import java.util.Iterator;
 
+import java.time.LocalDate;
 
 public class FamilyTreeService {
     private FileIO fileIO;
@@ -31,18 +31,16 @@ public class FamilyTreeService {
         return familyTree.removeHuman(idHuman);
     }
 
-    public Iterator<Human> getFamilyIterator() {
-        return familyTree.iterator();
+    public Human addHuman(String firstname, String middlename, String lastname, LocalDate birthDate, LocalDate deathDate, Gender gender, Relation.Type relation){
+        Human human = familyTreeBuilder.build(firstname, middlename, lastname, birthDate, deathDate, gender, relation);
+        familyTree.addHuman(human);
+        return human;
     }
 
-    public void addHuman(String firstname, String middlename, String lastname, int age, Gender gender, Relation.Type relation){
-        Human human = familyTreeBuilder.build(firstname, middlename, lastname, age, gender, relation);
+    public Human addKinder(String firstname, String middlename, String lastname, LocalDate birthDate, LocalDate deathDate, Gender gender, Relation.Type relation){
+        Human human = familyTreeBuilder.addKinder(firstname, middlename, lastname, birthDate, deathDate, gender, relation);
         familyTree.addHuman(human);
-    }
-
-    public void addKinder(String firstname, String middlename, String lastname, int age, Gender gender, Relation.Type relation){
-        Human human = familyTreeBuilder.addKinder(firstname, middlename, lastname, age, gender, relation);
-        familyTree.addHuman(human);
+        return human;
     }
 
     public String getFamilyListInfo(){
@@ -77,4 +75,9 @@ public class FamilyTreeService {
     public void sortByAge(){
         familyTree.sortByAge();
     }
+
+    public void getAge() {
+        familyTree.getAge();
+    }
+
 }

@@ -5,6 +5,8 @@ import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
 import HW.familyTree.FamilyTree.FamilyTree.model.FamilyTreeItem;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,17 +19,29 @@ public class Human implements Serializable, FamilyTreeItem<Human> {
     private Relation.Type relation;
     private int id;
     private List<Human> kinder;
+
+    private LocalDate birthDate;
+    private LocalDate deathDate;
+
     private int age;
 
-    public Human(int id, String firstname, String middlename, String lastname, int age, Gender gender, Relation.Type relation) {
-        this.id = id;
+    public Human(String firstname, String middlename, String lastname, LocalDate birthDate, LocalDate deathDate, Gender gender, Relation.Type relation) {
+//        this.id = id;
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
-        this.age = age;
+
+        this.birthDate = birthDate;
+        this.deathDate = deathDate;
+
+//        this.age = age;
         this.gender = gender;
         this.relation = relation;
         this.kinder = new ArrayList<>();
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -46,9 +60,44 @@ public class Human implements Serializable, FamilyTreeItem<Human> {
         return lastname;
     }
 
-    public int getAge() {
-        return age;
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
+
+    public void setDeathDate(LocalDate deathDate) {
+        this.deathDate = deathDate;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public LocalDate getDeathDate() {
+        return deathDate;
+    }
+
+    public int getHumanAge(){
+        if (deathDate == null){
+            return getPeriod(birthDate, LocalDate.now());
+        } else {
+            return getPeriod(birthDate, deathDate);
+        }
+    }
+
+    private int getPeriod(LocalDate birthDate, LocalDate deathDate){
+        Period diff = Period.between(birthDate, deathDate);
+        return diff.getYears();
+    }
+
+    public int getAge() {
+        return getHumanAge();
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+
 
     @Override
     public Human addHuman(Human human) {
@@ -89,7 +138,7 @@ public class Human implements Serializable, FamilyTreeItem<Human> {
 
     @Override
     public String toString() {
-        return " id: " + id + ", имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", возраст:" + age + ", пол: " + gender + ", семейная связь: " + relation;
+        return " id: " + id + ", имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", возраст:" + getAge() + ", пол: " + gender + ", семейная связь: " + relation;
     }
 
     @Override

@@ -13,6 +13,7 @@ public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, It
     private Human human;
     private List<T> familyList;
     private List<T> kinder;
+    private int count_id = 1;
 
     public FamilyTree() {
         this.familyList = new ArrayList<>();
@@ -24,6 +25,7 @@ public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, It
 
 //    Запись о новом члене семьи
     public void addHuman(T human) {
+        human.setId(count_id++);
         familyList.add(human);
     }
 
@@ -70,4 +72,9 @@ public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, It
     public void sortByAge(){
         familyList.sort(new ComparatorByAge<>());
     }
+
+    public int getAge() {
+        return human.getAge();
+    }
+
 }

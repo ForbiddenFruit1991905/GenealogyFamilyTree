@@ -4,6 +4,8 @@ import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
 import HW.familyTree.FamilyTree.FamilyTree.presenter.Presenter;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class ConsoleUI implements View{
@@ -25,23 +27,15 @@ public class ConsoleUI implements View{
         while (flag) {
             System.out.println(mainMenu.getMenu());
             String command = scanner.nextLine();
-            //TODO метод проверки данных на валидность
-//            int choice = Integer.parseInt(command);
-//            mainMenu.execute(Integer.parseInt(command));
-
             if(checkChoice(command)){
-//                int choice = Integer.parseInt(command);
                 if (checkChoice(command)){
                     mainMenu.execute(Integer.parseInt(command));
                 }
             } else {
                 System.out.println("Такой команды нет. \nПопробуйте еще раз ввести данные");
             }
-
-//      System.out.println("Такой команды нет. \nПопробуйте еще раз ввести данные");
-
-            }
         }
+    }
 
     public void addHuman() {
         System.out.println("Укажете имя:");
@@ -50,15 +44,28 @@ public class ConsoleUI implements View{
         String middlename = scanner.nextLine();
         System.out.println("Укажете фамилию:");
         String lastname = scanner.nextLine();
-        System.out.println("Укажете возраст:");
-        String ageStr = scanner.nextLine();
-        int age = Integer.parseInt(ageStr);
+        System.out.println("Укажите год рождения:");
+
+//        String bDay = scanner.nextLine();
+        LocalDate birthDate = LocalDate.of(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd. MMM. yyyy");
+        System.out.println(birthDate.format(dtf));
+        LocalDate deathDate = null;
+
+//        String ageStr = scanner.nextLine();
+//        int age = Integer.parseInt(ageStr);
+        System.out.println(scanner.nextLine());
         System.out.println("Введите Male или Female");
         Gender gender = Gender.valueOf(scanner.nextLine());
         System.out.println("Укажите тип родственной связи Spouses/Child/Divorced:");
         Relation.Type relation = Relation.Type.valueOf(scanner.nextLine());
-        System.out.println("Запись внесена в семейное древо ---> " +  "имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", возраст: " + age + ", пол: " + gender + ", семейная связь: " + relation);
-        presenter.addHuman(firstname, middlename, lastname, age, gender, relation);
+        System.out.println("Запись внесена в семейное древо ---> " +  "имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", возраст: " + getAge() + ", пол: " + gender + ", семейная связь: " + relation);
+        presenter.addHuman(firstname, middlename, lastname, birthDate, deathDate, gender, relation);
+    }
+
+    private Object getAge() {
+        presenter.getAge();
+        return null;
     }
 
     public void getFamilyListInfo() {

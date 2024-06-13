@@ -3,9 +3,10 @@ package HW.familyTree.FamilyTree.FamilyTree.presenter;
 import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
-import HW.familyTree.FamilyTree.FamilyTree.model.FamilyTree;
 import HW.familyTree.FamilyTree.FamilyTree.model.service.FamilyTreeService;
 import HW.familyTree.FamilyTree.FamilyTree.view.View;
+
+import java.time.LocalDate;
 
 public class Presenter {
 
@@ -17,8 +18,8 @@ public class Presenter {
         familyTreeService = new FamilyTreeService();
     }
 
-    public void addHuman(String firstname, String middlename, String lastname, int age, Gender gender, Relation.Type relation) {
-        familyTreeService.addHuman(firstname, middlename, lastname, age, gender, relation);
+    public void addHuman(String firstname, String middlename, String lastname, LocalDate birthDate, LocalDate deathDate, Gender gender, Relation.Type relation) {
+        familyTreeService.addHuman(firstname, middlename, lastname, birthDate, deathDate, gender, relation);
         getFamilyListInfo();
     }
 
@@ -49,5 +50,9 @@ public class Presenter {
 
     public void readFile() {
         familyTreeService.readFile();
+    }
+
+    public void getAge() {
+        familyTreeService.getAge();
     }
 }
