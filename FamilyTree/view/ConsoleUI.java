@@ -59,13 +59,12 @@ public class ConsoleUI implements View{
         Gender gender = Gender.valueOf(scanner.nextLine());
         System.out.println("Укажите тип родственной связи Spouses/Child/Divorced:");
         Relation.Type relation = Relation.Type.valueOf(scanner.nextLine());
-        System.out.println("Запись внесена в семейное древо ---> " +  "имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", возраст: " + getAge() + ", пол: " + gender + ", семейная связь: " + relation);
+        System.out.println("Запись внесена в семейное древо ---> " +  "имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", дата рождения: " + birthDate + ", пол: " + gender + ", семейная связь: " + relation);
         presenter.addHuman(firstname, middlename, lastname, birthDate, deathDate, gender, relation);
     }
 
     private Object getAge() {
-        presenter.getAge();
-        return null;
+        return presenter;
     }
 
     public void getFamilyListInfo() {

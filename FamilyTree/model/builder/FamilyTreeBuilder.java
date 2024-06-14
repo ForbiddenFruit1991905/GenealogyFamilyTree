@@ -13,12 +13,8 @@ public class FamilyTreeBuilder {
     private List<Human> kinder;
 
     public Human build(String firstname, String middlename, String lastname, LocalDate birthDate, LocalDate deathDate, Gender gender, Relation.Type relation){
-        human.setId(count_id++);
-        return new Human(firstname, middlename, lastname, birthDate, deathDate, gender, relation);
+//        human.setId(count_id++);
+        return new Human(count_id++, firstname, middlename, lastname, birthDate, deathDate, gender, relation);
     }
 
-    public Human addKinder(String firstname, String middlename, String lastname, LocalDate birthDate, LocalDate deathDate, Gender gender, Relation.Type relation) {
-        human.setId(count_id++);
-        return new Human(firstname, middlename, lastname, birthDate, deathDate, gender, relation);
-    }
 }

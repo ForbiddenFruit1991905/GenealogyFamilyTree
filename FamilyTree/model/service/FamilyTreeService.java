@@ -37,12 +37,6 @@ public class FamilyTreeService {
         return human;
     }
 
-    public Human addKinder(String firstname, String middlename, String lastname, LocalDate birthDate, LocalDate deathDate, Gender gender, Relation.Type relation){
-        Human human = familyTreeBuilder.addKinder(firstname, middlename, lastname, birthDate, deathDate, gender, relation);
-        familyTree.addHuman(human);
-        return human;
-    }
-
     public String getFamilyListInfo(){
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Список членов семьи:\n");

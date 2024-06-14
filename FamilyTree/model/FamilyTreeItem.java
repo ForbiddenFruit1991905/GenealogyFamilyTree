@@ -16,5 +16,5 @@ public interface FamilyTreeItem<T> extends Serializable, Comparable<T>{
     List<T> getAllPeople();
     Human addKinder(T child);
 
-    void setId(int i);
+    void setId(int id);
 }

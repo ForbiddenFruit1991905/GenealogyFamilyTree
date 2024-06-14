@@ -29,6 +29,12 @@ public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, It
         familyList.add(human);
     }
 
+//    Запись о новом члене семьи (для проверки)
+    public void addHumanInTree(T human) {
+        human.setId(count_id++);
+        familyList.add(human);
+    }
+
 //    Поиск человека по ID
     public T findHumanById(int idHuman) {
         for (T human: familyList) {

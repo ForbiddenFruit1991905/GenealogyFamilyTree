@@ -19,22 +19,28 @@ public class Human implements Serializable, FamilyTreeItem<Human> {
     private Relation.Type relation;
     private int id;
     private List<Human> kinder;
-
     private LocalDate birthDate;
     private LocalDate deathDate;
 
-    private int age;
-
-    public Human(String firstname, String middlename, String lastname, LocalDate birthDate, LocalDate deathDate, Gender gender, Relation.Type relation) {
-//        this.id = id;
+    public Human(int id, String firstname, String middlename, String lastname, LocalDate birthDate, LocalDate deathDate, Gender gender, Relation.Type relation) {
+        this.id = id;
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
-
         this.birthDate = birthDate;
         this.deathDate = deathDate;
+        this.gender = gender;
+        this.relation = relation;
+        this.kinder = new ArrayList<>();
+    }
 
-//        this.age = age;
+    public Human(String firstname, String middlename, String lastname, LocalDate birthDate, LocalDate deathDate, Gender gender, Relation.Type relation) {
+
+        this.firstname = firstname;
+        this.middlename = middlename;
+        this.lastname = lastname;
+        this.birthDate = birthDate;
+        this.deathDate = deathDate;
         this.gender = gender;
         this.relation = relation;
         this.kinder = new ArrayList<>();
@@ -59,7 +65,6 @@ public class Human implements Serializable, FamilyTreeItem<Human> {
     public String getLastname() {
         return lastname;
     }
-
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
@@ -93,11 +98,6 @@ public class Human implements Serializable, FamilyTreeItem<Human> {
     public int getAge() {
         return getHumanAge();
     }
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-
 
     @Override
     public Human addHuman(Human human) {

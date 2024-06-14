@@ -4,7 +4,6 @@ import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
 import HW.familyTree.FamilyTree.FamilyTree.model.FamilyTree;
-import HW.familyTree.FamilyTree.FamilyTree.model.service.FamilyTreeService;
 import HW.familyTree.FamilyTree.FamilyTree.view.ConsoleUI;
 import HW.familyTree.FamilyTree.FamilyTree.view.View;
 
@@ -19,9 +18,9 @@ public class Main {
         Human child1 = new Human( "Sonya", "D", "L", LocalDate.of(2022, 9, 26), null, Gender.Female, Relation.Type.Child);
         Human person2 = new Human( "Dima", "S", "L", LocalDate.of(1990, 7, 31), null, Gender.Male, Relation.Type.Spouses);
 
-        familyTree.addHuman(person1);
-        familyTree.addHuman(child1);
-        familyTree.addHuman(person2);
+        familyTree.addHumanInTree(person1);
+        familyTree.addHumanInTree(child1);
+        familyTree.addHumanInTree(person2);
 
         person1.addKinder(child1);
         System.out.println(familyTree);
