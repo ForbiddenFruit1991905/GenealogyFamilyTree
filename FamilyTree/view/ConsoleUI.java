@@ -1,5 +1,6 @@
 package HW.familyTree.FamilyTree.FamilyTree.view;
 
+import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Gender;
 import HW.familyTree.FamilyTree.FamilyTree.human.enums.Relation;
 import HW.familyTree.FamilyTree.FamilyTree.presenter.Presenter;
@@ -13,6 +14,7 @@ public class ConsoleUI implements View{
     private Presenter presenter;
     private boolean flag;
     private MainMenu mainMenu;
+    private Human human;
 
     public ConsoleUI() {
         scanner = new Scanner(System.in);
@@ -45,21 +47,18 @@ public class ConsoleUI implements View{
         System.out.println("Укажете фамилию:");
         String lastname = scanner.nextLine();
         System.out.println("Укажите год рождения:");
-
-//        String bDay = scanner.nextLine();
         LocalDate birthDate = LocalDate.of(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd. MMM. yyyy");
         System.out.println(birthDate.format(dtf));
         LocalDate deathDate = null;
-
-//        String ageStr = scanner.nextLine();
-//        int age = Integer.parseInt(ageStr);
         System.out.println(scanner.nextLine());
         System.out.println("Введите Male или Female");
         Gender gender = Gender.valueOf(scanner.nextLine());
-        System.out.println("Укажите тип родственной связи Spouses/Child/Divorced:");
+        System.out.println("Укажите тип родственной связи Mother/Father/Child:");
         Relation.Type relation = Relation.Type.valueOf(scanner.nextLine());
-        System.out.println("Запись внесена в семейное древо ---> " +  "имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", дата рождения: " + birthDate + ", пол: " + gender + ", семейная связь: " + relation);
+        System.out.println("Наличие детей:");
+        String kinder = scanner.nextLine();
+        System.out.println("Запись внесена в семейное древо ---> " +  "имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", дата рождения: " + birthDate + ", пол: " + gender + ", семейная связь: " + relation + ", дети: " + kinder);
         presenter.addHuman(firstname, middlename, lastname, birthDate, deathDate, gender, relation);
     }
 

@@ -20,7 +20,7 @@ public class Presenter {
 
     public void addHuman(String firstname, String middlename, String lastname, LocalDate birthDate, LocalDate deathDate, Gender gender, Relation.Type relation) {
         familyTreeService.addHuman(firstname, middlename, lastname, birthDate, deathDate, gender, relation);
-        getFamilyListInfo();
+//        getFamilyListInfo();
     }
 
     public void getFamilyListInfo() {
@@ -55,4 +55,5 @@ public class Presenter {
     public void getAge() {
         familyTreeService.getAge();
     }
+
 }
