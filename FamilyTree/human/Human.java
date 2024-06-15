@@ -99,6 +99,27 @@ public class Human implements Serializable, FamilyTreeItem<Human> {
         return getHumanAge();
     }
 
+    public String getChildrenInfo(){
+        StringBuilder list = new StringBuilder();
+        list.append("дети: ");
+        if (kinder.size() != 0){
+            list.append(kinder.get(0).getFirstname());
+            list.append(" (");
+            list.append(kinder.get(0).getAge());
+            list.append("г.)");
+            for (int i = 1; i < kinder.size(); i++) {
+                list.append(", ");
+                list.append(kinder.get(i).getFirstname());
+                list.append(" (");
+                list.append(kinder.get(i).getAge());
+                list.append("г.)");
+            }
+        } else {
+            list.append("нет");
+        }
+        return list.toString();
+    }
+
     @Override
     public Human addHuman(Human human) {
         return human;
@@ -138,12 +159,20 @@ public class Human implements Serializable, FamilyTreeItem<Human> {
 
     @Override
     public String toString() {
-        return " id: " + id + ", имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", возраст:" + getAge() + ", пол: " + gender + ", семейная связь: " + relation;
+        return " id: " + id + ", имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", возраст: " + getAge() + ", пол: " + gender + ", семейная связь: " + relation + ", " + getChildrenInfo();
     }
 
     @Override
     public int compareTo(Human o) {
         return firstname.compareTo(o.firstname);
+    }
+
+    public boolean getKinder(Human child) {
+        if (!kinder.contains(child)){
+            kinder.add(child);
+            return true;
+        }
+        return false;
     }
 }
 

@@ -6,7 +6,6 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface FamilyTreeItem<T> extends Serializable, Comparable<T>{
-
     int getId();
     String getFirstname();
     int getAge();
@@ -15,6 +14,7 @@ public interface FamilyTreeItem<T> extends Serializable, Comparable<T>{
     T removeHuman(int id);
     List<T> getAllPeople();
     Human addKinder(T child);
-
     void setId(int id);
+    List<Human> getKinder();
+
 }

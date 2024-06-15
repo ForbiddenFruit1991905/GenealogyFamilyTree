@@ -4,7 +4,7 @@ import HW.familyTree.FamilyTree.FamilyTree.human.Human;
 import HW.familyTree.FamilyTree.FamilyTree.model.FamilyTree;
 import java.io.*;
 
-public abstract class FileHandler{
+public class FileHandler{
     public boolean writeToFile(Serializable serializable, String fileName) {
         // Сохранение дерева в файл
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {

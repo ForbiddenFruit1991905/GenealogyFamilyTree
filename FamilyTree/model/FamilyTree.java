@@ -22,6 +22,11 @@ public class FamilyTree<T extends FamilyTreeItem<T>> implements Serializable, It
     public void addKinder(T child) {
         kinder.add(child);
     }
+//    private void addKinderToParents(T human){
+//        for (T t: human.addKinder(T child)){
+//            human.addKinder(t);
+//        }
+//    }
 
 //    Запись о новом члене семьи
     public void addHuman(T human) {
