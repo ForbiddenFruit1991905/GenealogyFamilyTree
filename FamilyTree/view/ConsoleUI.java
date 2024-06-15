@@ -56,7 +56,7 @@ public class ConsoleUI implements View{
         Gender gender = Gender.valueOf(scanner.nextLine());
         System.out.println("Укажите тип родственной связи Mother/Father/Child:");
         Relation.Type relation = Relation.Type.valueOf(scanner.nextLine());
-        System.out.println("Наличие детей:");
+        System.out.println("Наличие детей (имя, возраст):");
         String kinder = scanner.nextLine();
         System.out.println("Запись внесена в семейное древо ---> " +  "имя: " + firstname + ", отчество: " + middlename + ", фамилия: " + lastname + ", дата рождения: " + birthDate + ", пол: " + gender + ", семейная связь: " + relation + ", дети: " + kinder);
         presenter.addHuman(firstname, middlename, lastname, birthDate, deathDate, gender, relation);
